@@ -11,8 +11,12 @@
 	<groupId>org.fyhr</groupId>
 	<artifactId>SebsMealPlanner</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 	<name>SebsMealPlanner</name>
 	<description>SebsMealPlanner</description>
+	<modules>
+		<module>FoodItemMicroService</module>
+	</modules>
 	<properties>
 		<java.version>17</java.version>
 		<spring-cloud.version>2023.0.0</spring-cloud.version>
