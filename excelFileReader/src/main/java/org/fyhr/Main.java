@@ -16,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
 
         StringBuilder sb = new StringBuilder();
-        sb.append("insert into ingredient (ingredient_name, energy_kcal_per_100_gram, fats_g, protein_g, carbohydrates_g, fiberg, sugars_g, sugars_added_g, wholegrains_g, cholesterol_mg, vitamin_a_µg, retinol_µg, betakarotenµg, vitamin_d_µg, vitamin_e_mg, vitamin_k_µg, thiamine_mg, riboflavin_mg, niacin_mg, vitamin_b6_mg, folat_µg, vitamin_b12_µg, vitamin_c_mg, phosphorus_mg, iodine_µg, iron_mg, calcium_mg, potassium_mg, magnesium_mg, sodium_mg, salt_g, selenium_µg, zinc_mg)\n");
+        sb.append("insert into ingredient (ingredient_name, energy_kcal_per_100_gram, fats_g, protein_g, carbohydrates_g, fiber_g, sugars_g, sugars_added_g, wholegrains_g, cholesterol_mg, vitamin_a_µg, retinol_µg, betakaroten_µg, vitamin_d_µg, vitamin_e_mg, vitamin_k_µg, thiamine_mg, riboflavin_mg, niacin_mg, vitamin_b6_mg, folat_µg, vitamin_b12_µg, vitamin_c_mg, phosphorus_mg, iodine_µg, iron_mg, calcium_mg, potassium_mg, magnesium_mg, sodium_mg, salt_g, selenium_µg, zinc_mg)\n");
         sb.append("values\n");
 
         try {
@@ -44,8 +44,13 @@ public class Main {
 
                 System.out.println("Line " + line);
 
+
                 while (cellItr.hasNext()) {
                     Cell cell = cellItr.next();
+
+                    if(cell== null || cell.getCellType() == CellType.BLANK){
+                        cell.setCellValue(0.0);
+                    }
 
                     if(cell.getColumnIndex()==1){
                         continue;
@@ -53,7 +58,11 @@ public class Main {
 
                     switch (cell.getCellType()) {
                         case STRING:
-                            sb.append(cell.getStringCellValue().replaceAll(",", ".") + ", ");
+                            sb.append("'");
+                            sb.append(cell.getStringCellValue() + "', ");
+
+                            //sb.append(cell.getStringCellValue().replaceAll(",", ".") + ", ");
+
                             break;
                         case NUMERIC:
                             if(!cellItr.hasNext()){
@@ -64,7 +73,7 @@ public class Main {
                             }
                             break;
                     }
-                    //System.out.println(sb.toString());
+
                 }
                 sb.append("),\n");
             }
