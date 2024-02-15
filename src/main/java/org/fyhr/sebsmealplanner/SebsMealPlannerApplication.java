@@ -9,11 +9,6 @@ public class SebsMealPlannerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SebsMealPlannerApplication.class, args);
 
-
-
-
-
-
 	}
 
 }

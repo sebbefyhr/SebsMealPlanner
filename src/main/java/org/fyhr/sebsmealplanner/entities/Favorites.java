@@ -1,9 +1,9 @@
-package org.fyhr.sebsmealplanner.Entities;
+package org.fyhr.sebsmealplanner.entities;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="Favorites")
+@Table(name="favorites")
 public class Favorites {
 
     @Id

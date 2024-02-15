@@ -1,4 +1,4 @@
-package org.fyhr.sebsmealplanner.Entities;
+package org.fyhr.sebsmealplanner.entities;
 
 
 import jakarta.persistence.Column;
@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="Instruction")
+@Table(name="instruction")
 public class Instruction {
 
     @Id

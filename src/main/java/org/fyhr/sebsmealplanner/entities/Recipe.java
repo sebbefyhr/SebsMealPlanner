@@ -1,4 +1,4 @@
-package org.fyhr.sebsmealplanner.Entities;
+package org.fyhr.sebsmealplanner.entities;
 
 
 import jakarta.persistence.*;
@@ -7,7 +7,7 @@ import org.fyhr.sebsmealplanner.enums.Measurement;
 import java.util.List;
 
 @Entity
-@Table(name="Recipe")
+@Table(name="recipe")
 public class Recipe {
 
     @Id
