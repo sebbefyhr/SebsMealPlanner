@@ -9,7 +9,6 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>excelFileReader</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -29,6 +28,5 @@
             <version>5.2.0</version>
         </dependency>
     </dependencies>
-
 
 </project>

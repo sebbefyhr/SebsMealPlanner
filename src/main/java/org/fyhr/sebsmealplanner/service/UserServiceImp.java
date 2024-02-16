@@ -2,13 +2,16 @@ package org.fyhr.sebsmealplanner.service;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
-import org.fyhr.sebsmealplanner.DAO.UserDao;
+import org.fyhr.sebsmealplanner.DAO.UserRepository;
 import org.fyhr.sebsmealplanner.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+
 @Service
-public class UserServiceImp implements UserService {
+public class UserServiceImp  implements UserService {
 
     private final EntityManager entityManager;
 
@@ -18,12 +21,12 @@ public class UserServiceImp implements UserService {
     }
 
     @Autowired
-    private UserDao userDao;
+    private UserRepository userDao;
 
     public User getUser(User userDetails) {
 
         TypedQuery<User> typedQuery = entityManager.createQuery
-                ("FROM user WHERE password = :password AND user_name = :username", User.class);
+                ("FROM users WHERE password = :password AND user_name = :username", User.class);
 
         try{
             User user = typedQuery.setParameter("password", userDetails.getPassword()).setParameter("username",
@@ -37,5 +40,10 @@ public class UserServiceImp implements UserService {
 
     public User insertIntoDB(User user) {
         return userDao.save(user);
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        return userDao.findAll();
     }
 }
